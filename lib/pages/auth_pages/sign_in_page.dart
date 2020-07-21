@@ -11,6 +11,7 @@ import 'package:ecommerce_app/widgets/custom_headers.dart';
 import 'package:ecommerce_app/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/widgets/sign_up_button.dart';
 import 'package:ecommerce_app/widgets/social_media_button.dart';
+
 class SignInForm extends StatefulWidget {
   @override
   _SignInFormState createState() => _SignInFormState();
@@ -39,11 +40,7 @@ class _SignInFormState extends State<SignInForm> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
-        automaticallyImplyLeading: false,
-        title: 'Sign In',
-        isTitleCentered: true,
-        leading: null
-      ),
+          automaticallyImplyLeading: false, title: 'Sign In', isTitleCentered: true, leading: null),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: SingleChildScrollView(
@@ -122,8 +119,12 @@ class _SignInFormState extends State<SignInForm> {
                 ),
                 CustomButton(
                   text: 'Continue',
-                  onTap: () => Navigator.of(context).pushReplacement(
-                      PageTransition(child: SuccessPage(title: 'Login Success'), type: PageTransitionType.fade)),
+                  onTap: () => Navigator.of(context).pushReplacement(PageTransition(
+                      child: SuccessPage(
+                        appBarTitle: 'Login',
+                        pageTitle: 'Login Succeeded',
+                      ),
+                      type: PageTransitionType.fade)),
                 ),
                 SizedBox(
                   height: 10,
@@ -148,9 +149,10 @@ class _SignInFormState extends State<SignInForm> {
                 SizedBox(
                   height: 20,
                 ),
-                SignUpButton(
-                  onTap: () => Navigator.of(context)
-                      .push(PageTransition(type: PageTransitionType.fade, child: SignUpPage())),
+                CustomFlatButton(firstText: 'Don\'t have an account? ', secondText: 'Sign Up',
+                  onTap: () =>
+                      Navigator.of(context)
+                          .push(PageTransition(type: PageTransitionType.fade, child: SignUpPage())),
                 ),
                 SizedBox(
                   height: 10,

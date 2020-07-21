@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/pages/auth_pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -8,6 +7,8 @@ import 'package:ecommerce_app/widgets/custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_headers.dart';
 import 'package:ecommerce_app/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/widgets/sign_up_button.dart';
+import 'package:ecommerce_app/pages/auth_pages/sign_up_page.dart';
+import 'package:ecommerce_app/widgets/custom_back_button.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   @override
@@ -36,14 +37,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         automaticallyImplyLeading: false,
         title: 'Forget Password',
         isTitleCentered: true,
-        leading: IconButton(
-          hoverColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          icon: Icon(Icons.arrow_back_ios),
-          color: Color(0xFF757575),
-          iconSize: 16,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        leading: CustomBackButton(),
       ),
       backgroundColor: Colors.white,
       body: Padding(
@@ -77,7 +71,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                     onTap: () => Navigator.of(context).push(PageTransition(
                         type: PageTransitionType.fade, child: ConfirmPasswordPage())),
                   ),
-                  SignUpButton(
+                  CustomFlatButton(
+                    firstText: 'Don\'t have an account? ',
+                    secondText: 'Sign Up',
                     onTap: () => Navigator.of(context)
                         .push(PageTransition(type: PageTransitionType.fade, child: SignUpPage())),
                   ),

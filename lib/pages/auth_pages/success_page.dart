@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/widgets/custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_headers.dart';
-class SuccessPage extends StatelessWidget {
-  final String title;
 
-  const SuccessPage({@required this.title});
+class SuccessPage extends StatelessWidget {
+  final String appBarTitle;
+  final String pageTitle;
+
+  const SuccessPage({@required this.pageTitle, @required this.appBarTitle});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
           automaticallyImplyLeading: false,
-          title: title,
+          title: appBarTitle,
           isTitleCentered: true,
-          leading: null
-      ),
+          leading: null),
       body: Column(
         children: <Widget>[
           SizedBox(height: 30),
@@ -35,7 +37,7 @@ class SuccessPage extends StatelessWidget {
           ),
           SizedBox(height: 15),
           CustomHeaders(
-            title: 'Login Success',
+            title: pageTitle,
             subTitle: 'Now you\'re ready to start shopping !',
           ),
           Padding(

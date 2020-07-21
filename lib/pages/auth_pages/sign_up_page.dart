@@ -1,12 +1,13 @@
-import 'package:ecommerce_app/pages/auth_pages/complete_profile_page.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:ecommerce_app/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/widgets/custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_headers.dart';
 import 'package:ecommerce_app/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/widgets/social_media_button.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:ecommerce_app/pages/auth_pages/complete_profile_page.dart';
+import 'package:ecommerce_app/widgets/custom_back_button.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -34,14 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
         automaticallyImplyLeading: false,
         title: 'Sign Up',
         isTitleCentered: true,
-        leading: IconButton(
-          hoverColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          icon: Icon(Icons.arrow_back_ios),
-          color: Color(0xFF757575),
-          iconSize: 16,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        leading: CustomBackButton(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -84,7 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   textInputType: TextInputType.text,
                   labelText: 'Confirm Password',
                   suffixIcon: Icons.lock,
-                  textEditingController: _passwordController,
+                  textEditingController: _RePasswordController,
                 ),
                 SizedBox(
                   height: 10,

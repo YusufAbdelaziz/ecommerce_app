@@ -5,6 +5,8 @@ import 'package:ecommerce_app/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/widgets/custom_button.dart';
 import 'package:ecommerce_app/widgets/custom_headers.dart';
 import 'package:ecommerce_app/widgets/custom_text_field.dart';
+import 'package:ecommerce_app/pages/auth_pages/otp_verification_page.dart';
+import 'package:ecommerce_app/widgets/custom_back_button.dart';
 
 class CompleteProfilePage extends StatefulWidget {
   @override
@@ -43,14 +45,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
         automaticallyImplyLeading: false,
         title: 'Sign Up',
         isTitleCentered: true,
-        leading: IconButton(
-          hoverColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          icon: Icon(Icons.arrow_back_ios),
-          color: Color(0xFF757575),
-          iconSize: 16,
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        leading: CustomBackButton(),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -109,7 +104,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                 CustomButton(
                   text: 'Continue',
                   onTap: () => Navigator.of(context).push(
-                      PageTransition(type: PageTransitionType.fade, child: CompleteProfilePage())),
+                      PageTransition(type: PageTransitionType.fade, child: OTPVerificationPage())),
                 ),
                 SizedBox(
                   height: 5,
